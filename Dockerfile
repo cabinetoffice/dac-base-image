@@ -10,9 +10,9 @@ RUN apt-get update \
   && apt-get install -y build-essential software-properties-common \
   # psycopg2 dependencies
   && apt-get install -y libpq-dev \
-  # Translations dependencies
-  && apt-get install -y gettext \
+  # Wget
   && apt-get install -y wget \
+  # Python
   && apt-get install -y cmake python3.8 python3.8-dev python3-pip \
   # Latex
   && apt-get install -y texlive-latex-base texlive-latex-recommended texlive-pictures texlive-latex-extra texlive-fonts-extra texlive-xetex \
@@ -32,3 +32,7 @@ RUN wget --no-check-certificate https://github.com/jgm/pandoc/releases/download/
 RUN add-apt-repository ppa:ubuntugis/ppa \
   && apt-get update \
   && apt-get install -y gdal-bin
+
+# Crystallised Python libraries
+COPY ./requirements.txt /requirements.txt
+RUN pip install -r /requirements.txt
