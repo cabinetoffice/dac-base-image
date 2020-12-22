@@ -13,8 +13,8 @@ It contains:
 
 Pull image from the command line:
 
-    `$ docker pull docker.pkg.github.com/cabinetoffice/dac-base-image/dac-base-image:latest`
+    $ docker pull docker.pkg.github.com/cabinetoffice/dac-base-image/dac-base-image:latest
 
 Use as base image in DockerFile:
   
-    `FROM docker.pkg.github.com/cabinetoffice/dac-base-image/dac-base-image:latest`
+    FROM docker.pkg.github.com/cabinetoffice/dac-base-image/dac-base-image:latest
