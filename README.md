@@ -9,6 +9,7 @@ It contains:
 2. GDAL
 3. Pandoc
 4. Latex
+5. Crystallised Python libraries (check requirements.txt)
 
 
 Pull image from the command line:
