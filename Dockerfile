@@ -10,29 +10,11 @@ RUN apt-get update \
   && apt-get install -y build-essential software-properties-common \
   # psycopg2 dependencies
   && apt-get install -y libpq-dev \
-  # Wget
-  && apt-get install -y wget \
   # Python
   && apt-get install -y cmake python3.8 python3.8-dev python3-pip \
-  # Latex
-  && apt-get install -y texlive-latex-base texlive-latex-recommended texlive-pictures texlive-latex-extra texlive-fonts-extra texlive-xetex \
-  && apt-get install -y lmodern texlive-fonts-recommended texlive-plain-generic wget texlive-luatex \
   # cleaning up unused files
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && rm -rf /var/lib/apt/lists/*
 
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.8 1
 RUN python -m pip install -U pip setuptools wheel
-
-# Pandoc
-RUN wget --no-check-certificate https://github.com/jgm/pandoc/releases/download/2.11.2/pandoc-2.11.2-1-amd64.deb \
-  && dpkg -i pandoc-2.11.2-1-amd64.deb
-
-# GDAL
-RUN add-apt-repository ppa:ubuntugis/ppa \
-  && apt-get update \
-  && apt-get install -y gdal-bin
-
-# Crystallised Python libraries
-COPY ./requirements.txt /requirements.txt
-RUN pip install -r /requirements.txt
