@@ -3,10 +3,7 @@ DAC base image
 
 Docker base image to be used in Data Asset Catalogue. This is a public image, and it doesn't need authentication.
 
-It contains:
-
-1. Python 3.8
-
+It's based on Ubuntu 18.04 and it comes with Python 3.8 installed.
 
 Pull image from the command line:
 
